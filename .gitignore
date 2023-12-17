@@ -1,0 +1,5 @@
+logs/*
+!logs/.gitkeep
+client/distributedGrepClient/testing/*.log
+server/sdfs/sdfsFileSystemRoot/*
+!server/sdfs/sdfsFileSystemRoot/.gitkeep
