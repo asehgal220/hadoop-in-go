@@ -1,5 +1,3 @@
-# cs425 mps
-
 ## Distributed Batch Processing System
 
 ### Usage
@@ -98,11 +96,7 @@ const (
 
 ### Getting started on a new machine
 
-To configure a new machine, simply clone the repo
-```
-git clone https://gitlab.engr.illinois.edu/asehgal4/cs425mps.git
-```
-and treat it like any non-introducer machine, the process of which is outlined in the other machines.
+To configure a new machine, simply clone the repo and treat it like any non-introducer machine, the process of which is outlined in the other machines.
 
 
 
@@ -113,24 +107,18 @@ and treat it like any non-introducer machine, the process of which is outlined i
 In order to successfully run the distributed grep, complete the following steps:
 
 1. ssh into all instances and navigate to the server directory
-```
-mp1/src/server
-```
 2. Build and run the server
 ```
 go build
 ./server
 ```
-3. This will start the server on each instance. Now, from any machine, run distributed grep by navigating to the client directory
-```
-mp1/src/client
-```
-And running 
+3. This will start the server on each instance. Now, from any machine, run distributed grep by navigating to the client directory and running 
 ```
 go build
 ./client <pattern>
 ```
-You need only build the client or server once, if cloning the code on a new machine. For convenience, the setup is completely done with the provided log files on piazza on all of the vms, within awangoo2's filesystem.
+
+You need only build the client or server once, if cloning the code on a new machine.
 
 ### Getting started on a new machine
 
@@ -139,26 +127,23 @@ To configure the repository on a new machine
 2. Set the machine 'number' in the ```mp1/logs/machine.txt``` file
 3. Make sure the mapping from machine to id exists in all clients in the cluster, (see the bottom of ```client.go```)
 ```
-	nodes["172.22.156.162"] = 1
-	nodes["172.22.158.162"] = 2
-	nodes["172.22.94.162"] = 3
-	nodes["172.22.156.163"] = 4
-	nodes["172.22.158.163"] = 5
-	nodes["172.22.94.163"] = 6
-	nodes["172.22.156.164"] = 7
-	nodes["172.22.158.164"] = 8
-	nodes["172.22.94.164"] = 9
-	nodes["172.22.156.165"] = 10
+	nodes[ip1] = 1
+	nodes[ip2] = 2
+	nodes[ip3] = 3
+	nodes[ip4] = 4
+	nodes[ip5] = 5
+	nodes[ip6] = 6
+	nodes[ip7] = 7
+	nodes[ip8] = 8
+	nodes[ip9] = 9
+	nodes[ip10] = 10
     // Add more here...
 ```
 5. Copy the log file you want to run grep on into the ```mp1/logs/machine.<i>.log``` file, which you will need to create.
 
 ### Running unit tests
-
-To run unit tests, log into asehgal4's vms. The test cases have hardcoded domains to ssh into with asehgal4's doman asehgal4@fa23-cs425-4906.cs.illinois.edu. 
-
 1. First ensure that all 10 vms have the latest version of the codebase pulled.
-2. Navigate to the ```mp1/src/server``` directory of each vm.
+2. Navigate to the server directory of each vm.
 3. Run ```go build``` to build an executable of the server. 
-3. Navigate to the ```mp1/src/client/``` directory.
+3. Navigate to the client directory.
 4. Run ```go test``` to run all cases, or ```go test <test name>``` for specific tests.
