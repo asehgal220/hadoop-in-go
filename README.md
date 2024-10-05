@@ -14,7 +14,7 @@ SELECT ALL FROM <sdfs dataset> WHERE <pattern>
 
 ### Usage
 
-In order to initialize the SDFS, you have to start the introducer node (currently hardcoded to ```172.22.158.162```, or ```fa23-cs425-4902.cs.illinois.edu```). 
+In order to initialize the SDFS, you have to start the introducer node (hardcode this ip). 
 
 1. To do that, ssh into that server, and navigate to the directory 
 ```
